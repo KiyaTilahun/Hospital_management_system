@@ -31,3 +31,5 @@ Route::middleware([
 });
 // 
 Route::post('/upload_doctor',[AdminController::class,'upload']);
+Route::post('/appointement',[HomeController::class,'appointement']);
+
