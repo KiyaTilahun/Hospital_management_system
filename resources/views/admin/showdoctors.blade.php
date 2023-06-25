@@ -34,31 +34,27 @@
         <div class="d-flex align-items-start justify-content-center w-100">
       <table class=" table w-50  " style="color: white !important">
         <tr>
-            <th scope="col">Customer Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone</th>
             <th scope="col">Doctor Name</th>
-            <th scope="col">Date</th>
-            <th scope="col">Message</th>
-            <th scope="col">Status</th>
-            <th scope="col">Approved</th>
-            <th scope="col">Success</th>
-
-
+            <th scope="col">Phone</th>
+            <th scope="col">Speciallity</th>
+            <th scope="col">RoomNo</th>
+            <th scope="col">Image</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
 
         </tr>
-        @foreach($data as $app)
+        @foreach($docdata as $app)
         <tr style="background-color: lightskyblue;color:black;">
             <td>{{$app->name}}</td>
-            <td>{{$app->email}}</td>
             <td>{{$app->phone}}</td>
-            <td>{{$app->doctor}}</td>
-            <td>{{$app->date}}</td>
-            <td>{{$app->message}}</td>
-            <td>{{$app->status}}</td>
-            <td><a  href="{{url('approved',$app->id)}}"  role="button" class="btn btn-success ">Approved</a></td>
-            <td><a  href="{{url('canceled',$app->id)}}" role="button" class="btn btn-danger ">Canceled</a></td>
-@endforeach
+            <td>{{$app->speciallity}}</td>
+            <td>{{$app->room}}</td>
+            <td><img src="doctorimage/{{$app->image}}" style="border-radius:0px;"  width="100"></td>
+            
+            <td><a  href="{{url('updatedoctor',$app->id)}}"  role="button" class="btn btn-primary ">Edit</a></td>
+            <td><a  onclick="return confirm('are you sure to delete doctor')" href="{{url('deletedoctor',$app->id)}}" role="button" class="btn btn-danger ">Delete</a></td>
+        </tr>
+        @endforeach
       </table>
       </div>
       <!-- page-body-wrapper ends -->
