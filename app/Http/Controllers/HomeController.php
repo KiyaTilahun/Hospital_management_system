@@ -55,4 +55,23 @@ $doctor=doctor::all();
 $data->save();
 return redirect()->back()->with('message','Appointement successful,we will contact with you soon');
     }
+    public function myappointement(){
+if(Auth::id()){
+
+    $userid=Auth::user()->id;
+    $appoint=appointement::where('user_id',$userid)->get();
+        return view('user.my_appointement',compact('appoint'));}
+        else{
+            return redirect()->back();
+        }
+    }
+
+    public function cancelapp($id){
+
+
+
+        $data=appointement::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
 }

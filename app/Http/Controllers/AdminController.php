@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointement;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
+
+
 
 class AdminController extends Controller
 {
@@ -26,5 +29,11 @@ return redirect()->back()->with('message','doctor has been added succesfully');
         
 
 
+    }
+
+    public function showappointement(){
+$data=appointement::all();
+
+        return view('admin.showappointement',compact('data'));
     }
 }
