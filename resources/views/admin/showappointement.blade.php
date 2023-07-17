@@ -31,18 +31,20 @@
       @include('admin.navbar')
       <div class=" container-fluid page-body-wrapper">
     
-        <div class="d-flex align-items-start justify-content-center w-100">
-      <table class=" table w-50  " style="color: white !important">
+        <div class="table-responsive">
+      <table class="table w-100" style="color: white !important">
         <tr>
-            <th scope="col">Customer Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Doctor Name</th>
-            <th scope="col">Date</th>
-            <th scope="col">Message</th>
-            <th scope="col">Status</th>
-            <th scope="col">Approved</th>
-            <th scope="col">Success</th>
+            <th >Customer Name</th>
+            <th >Email</th>
+            <th >Phone</th>
+            <th >Doctor Name</th>
+            <th >Date</th>
+            <th >Message</th>
+            <th >Status</th>
+            <th >Approved</th>
+            <th >Success</th>
+            <th >Send Mail</th>
+
 
 
 
@@ -58,6 +60,8 @@
             <td>{{$app->status}}</td>
             <td><a  href="{{url('approved',$app->id)}}"  role="button" class="btn btn-success ">Approved</a></td>
             <td><a  href="{{url('canceled',$app->id)}}" role="button" class="btn btn-danger ">Canceled</a></td>
+            <td><a  href="{{url('emailview',$app->id)}}" role="button" class="btn btn-secondary ">Send Mail</a></td>
+
 @endforeach
       </table>
       </div>
